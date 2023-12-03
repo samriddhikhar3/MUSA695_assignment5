@@ -1,0 +1,16 @@
+"0","ga_wide <- get_acs("
+"0","  geography = ""county"","
+"0","  state = ""Georgia"","
+"0","  variables = c(medinc = ""B19013_001"","
+"0","                medage = ""B01002_001""),"
+"0","  output = ""wide"","
+"0","  year = 2020"
+"0",")"
+"2","Getting data from the 2016-2020 5-year ACS
+"
+"2","Using FIPS code '13' for state 'Georgia'
+"
+"0","plot2<-ggplot(ga_wide, aes(x = medageE, y = medincE)) + "
+"0","  geom_point()"
+"0",""
+"0","plot2"

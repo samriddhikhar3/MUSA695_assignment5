@@ -1,0 +1,11 @@
+"0","library(ggiraph)"
+"0","library(scales)"
+"0","library(tigris)"
+"0",""
+"0","#where is us_values"
+"0",""
+"0","us_value_shifted <- us_value %>%"
+"0","  shift_geometry(position = ""outside"") %>%"
+"0","  mutate(tooltip = paste(NAME, estimate, sep = "": ""))"
+"2","Error: object 'us_value' not found
+"

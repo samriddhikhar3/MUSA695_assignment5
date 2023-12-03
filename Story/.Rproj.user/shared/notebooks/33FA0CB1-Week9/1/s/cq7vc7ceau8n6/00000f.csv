@@ -1,0 +1,71 @@
+"0","library(tidycensus)"
+"0","library(tidyverse)"
+"2","── [1mAttaching core tidyverse packages[22m ───────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+[32m✔[39m [34mdplyr    [39m 1.1.4     [32m✔[39m [34mreadr    [39m 2.1.4
+[32m✔[39m [34mforcats  [39m 1.0.0     [32m✔[39m [34mstringr  [39m 1.5.1
+[32m✔[39m [34mggplot2  [39m 3.4.4     [32m✔[39m [34mtibble   [39m 3.2.1
+[32m✔[39m [34mlubridate[39m 1.9.3     [32m✔[39m [34mtidyr    [39m 1.3.0
+[32m✔[39m [34mpurrr    [39m 1.0.2     "
+"2","── [1mConflicts[22m ─────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+[31m✖[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
+[31m✖[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
+[36mℹ[39m Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors"
+"0","library(ggbeeswarm)"
+"0","library(scales)"
+"2","
+Attaching package: ‘scales’
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    discard
+
+"
+"2","The following object is masked from ‘package:readr’:
+
+    col_factor
+
+"
+"0","options(scipen = 999)"
+"0",""
+"0","ny_race_income <- get_acs("
+"0","  geography = ""tract"", "
+"0","  state = ""NY"",  "
+"0","  county = c(""New York"", ""Bronx"", ""Queens"", ""Richmond"", ""Kings""),"
+"0","  variables = c(White = ""B03002_003"", "
+"0","                Black = ""B03002_004"", "
+"0","                Asian = ""B03002_006"","
+"0","                Hispanic = ""B03002_012""), "
+"0","  summary_var = ""B19013_001"","
+"0","  year = 2020"
+"0",") %>%"
+"0","  group_by(GEOID) %>%"
+"0","  filter(estimate == max(estimate, na.rm = TRUE)) %>%"
+"0","  ungroup() %>%"
+"0","  filter(estimate != 0)"
+"2","Getting data from the 2016-2020 5-year ACS
+"
+"2","Using FIPS code '36' for state 'NY'
+"
+"2","Using FIPS code '061' for 'New York County'
+"
+"2","Using FIPS code '005' for 'Bronx County'
+"
+"2","Using FIPS code '081' for 'Queens County'
+"
+"2","Using FIPS code '085' for 'Richmond County'
+"
+"2","Using FIPS code '047' for 'Kings County'
+"
+"0","plot <- ggplot(ny_race_income, aes(x = variable, y = summary_est, color = summary_est)) +"
+"0","  geom_quasirandom(alpha = 0.5) + "
+"0","  coord_flip() + "
+"0","  theme_minimal(base_size = 13) + "
+"0","  scale_color_viridis_c(guide = ""none"") + "
+"0","  scale_y_continuous(labels = label_dollar()) + "
+"0","  labs(x = ""Largest group in Census tract"", "
+"0","       y = ""Median household income"", "
+"0","       title = ""Household income distribution by largest racial/ethnic group"", "
+"0","       subtitle = ""Census tracts, New York City"", "
+"0","       caption = ""Data source: 2016-2020 ACS"")"
+"0",""

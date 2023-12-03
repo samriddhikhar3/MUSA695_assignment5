@@ -1,0 +1,81 @@
+---
+title: "The Donut Effect: Hollowing Downtowns in the Bay Area"
+subtitle: "MUSA 508, Assignment 2"
+author: "Samriddhi Khare, University of Pennsylvania"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+    code_download: true
+    theme: cerulean 
+---
+
+# San Fran infra chanfes
+
+The Central Subway T Third Line in San Francisco is a pivotal addition to the city's public transportation network, representing a crucial extension of the Muni Metro system. This underground light rail line, officially known as the T Third Street line, connects the southeastern neighborhoods of Bayview-Hunters Point and Visitacion Valley to the city's downtown area. Serving as a vital link for residents and commuters, the Central Subway enhances accessibility, reduces travel times, and fosters connectivity in a historically underserved region. With its integration into the broader Muni Metro system, the T Third Line plays a key role in supporting the city's commitment to sustainable and efficient public transportation options.
+
+The Central Subway T Third Line in San Francisco connects various neighborhoods, serving as a crucial link between different areas of the city. Specifically, it connects:
+
+Bayview-Hunters Point:
+
+The T Third Line starts in the southeastern neighborhood of Bayview-Hunters Point, an area historically underserved by public transportation.
+Visitacion Valley:
+
+The line extends through Visitacion Valley, another neighborhood in the southeastern part of San Francisco.
+South of Market (SoMa):
+
+As the T Third Line progresses northward, it serves the South of Market (SoMa) district, a dynamic and rapidly developing area with a mix of residential and commercial spaces.
+Downtown San Francisco:
+
+The line continues into the heart of downtown San Francisco, connecting to the existing Muni Metro system and providing access to various business, cultural, and entertainment districts.
+By connecting these diverse neighborhoods, the T Third Line contributes to improved accessibility, efficient commuting, and enhanced connectivity for residents and visitors alike. The extension of the Muni Metro system via the Central Subway plays a significant role in fostering a more integrated and accessible public transportation network throughout the city.
+
+```{r setup, include=FALSE}
+  knitr::opts_chunk$set(
+    echo = TRUE,
+    warning = FALSE,
+    message = FALSE,
+    out.width = '100%',
+    fig.retina =3
+  )
+```
+
+## R Markdown
+
+```{r packages}
+library(tidyverse)
+library(tidycensus)
+library(sf)
+library(tidyr)
+library(ggplot2)
+library(viridis)
+library(stringr)
+library(mapview)
+library(tigris)
+library(ggplot2)
+library(dplyr)
+library(ggbeeswarm)
+library(scales)
+library(plotly)
+```
+
+```{r echo=FALSE, results='hide'}
+bay = c("San Francisco", "Alameda", "Contra Costa", "Marin", "Napa", "San Mateo", "Santa Clara", "Solano", "Sonoma")
+
+san_francisco_bachelors <- get_acs(
+  geography = "tract",
+  variables = "DP02_0068P",
+  year = 2021,
+  state = "CA",
+  county = bay ,
+  geometry = TRUE
+)
+
+```
+
+```{r}
+mapview(san_francisco_bachelors, zcol = "estimate")
+
+```

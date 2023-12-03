@@ -1,0 +1,10 @@
+"0","library(tmap)"
+"2","Breaking News: tmap 3.x is retiring. Please test v4, e.g. with
+remotes::install_github('r-tmap/tmap')
+"
+"0","tmap_mode(""view"")"
+"2","tmap mode set to interactive viewing
+"
+"0","tm_shape(dallas_bachelors) + "
+"0","  tm_polygons(fill = ""estimate"", palette = ""magma"","
+"0","          alpha = 0.5)"

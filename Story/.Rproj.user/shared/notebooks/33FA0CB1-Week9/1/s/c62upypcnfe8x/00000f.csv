@@ -1,0 +1,13 @@
+"0","philly_inflow <- get_flows("
+"0","  geography = ""county"","
+"0","  state = ""PA"","
+"0","  county = ""Philadelphia"","
+"0","  geometry = TRUE"
+"0",") %>%"
+"0","  filter(variable == ""MOVEDIN"") %>%"
+"0","  na.omit() %>%"
+"0","  arrange(desc(estimate))"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"

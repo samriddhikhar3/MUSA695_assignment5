@@ -1,0 +1,28 @@
+"0","library(mapdeck)"
+"2","
+Attaching package: ‘mapdeck’
+
+"
+"2","The following objects are masked from ‘package:plotly’:
+
+    add_heatmap, add_mesh, add_sf, add_text
+
+"
+"2","The following object is masked from ‘package:tibble’:
+
+    add_column
+
+"
+"0","token <- ""pk.eyJ1IjoiZWNkZWxtZWxsZSIsImEiOiJjbG8zcTVlNGwwMTRrMmxudXNvMTlpM3A5In0.qv1IRxXEoai7_ZtyOadKpg"""
+"0","philly_inflow %>%"
+"0","  slice_max(estimate, n = 30) %>%"
+"0","  mutate(weight = estimate / 500) %>%"
+"0","  mapdeck(token = token) %>%"
+"0","  add_arc(origin = ""centroid2"","
+"0","          destination = ""centroid1"","
+"0","          stroke_width = ""weight"","
+"0","          update_view = FALSE) "
+"2","Registered S3 method overwritten by 'jsonify':
+  method     from    
+  print.json jsonlite
+"
