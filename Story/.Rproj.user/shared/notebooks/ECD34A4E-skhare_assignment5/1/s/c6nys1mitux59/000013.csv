@@ -1,0 +1,5 @@
+"0","# Assuming san_francisco_bachelors is your Spatial* object (e.g., SpatialPolygonsDataFrame)"
+"0","library(mapview)"
+"0",""
+"0","# Replace ""viridis"" with the desired palette name"
+"0","mapview(san_francisco_bachelors, zcol = ""estimate"", col.regions = viridis::magma(100))"
