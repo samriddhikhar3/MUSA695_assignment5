@@ -8,7 +8,30 @@
 "0","  geometry = TRUE"
 "0",") %>%"
 "0","  mutate(NAME = str_remove(NAME, "" County, California""))"
-"0",""
+"2","Getting data from the 2016-2020 5-year ACS
+"
+"2","Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Using FIPS code '075' for 'San Francisco County'
+"
+"2","Using FIPS code '001' for 'Alameda County'
+"
+"2","Using FIPS code '013' for 'Contra Costa County'
+"
+"2","Using FIPS code '041' for 'Marin County'
+"
+"2","Using FIPS code '055' for 'Napa County'
+"
+"2","Using FIPS code '081' for 'San Mateo County'
+"
+"2","Using FIPS code '085' for 'Santa Clara County'
+"
+"2","Using FIPS code '095' for 'Solano County'
+"
+"2","Using FIPS code '097' for 'Sonoma County'
+"
 "0","# Choropleth map"
 "0","vt_map <- ggplot(vt_income, aes(fill = estimate)) + "
 "0","   #geom_sf(aes(color = ""white""), size = 0.5) +"
