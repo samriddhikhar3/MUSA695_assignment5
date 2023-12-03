@@ -14,27 +14,6 @@ output:
 
 # San Fran infra chanfes
 
-https://siepr.stanford.edu/publications/policy-brief/donut-effect-how-covid-19-shapes-real-estate#:~:text=But%20what%20is%20driving%20the,work%20from%20home%20(WFH).
-
-
-The Central Subway T Third Line in San Francisco is a pivotal addition to the city's public transportation network, representing a crucial extension of the Muni Metro system. This underground light rail line, officially known as the T Third Street line, connects the southeastern neighborhoods of Bayview-Hunters Point and Visitacion Valley to the city's downtown area. Serving as a vital link for residents and commuters, the Central Subway enhances accessibility, reduces travel times, and fosters connectivity in a historically underserved region. With its integration into the broader Muni Metro system, the T Third Line plays a key role in supporting the city's commitment to sustainable and efficient public transportation options.
-
-The Central Subway T Third Line in San Francisco connects various neighborhoods, serving as a crucial link between different areas of the city. Specifically, it connects:
-
-Bayview-Hunters Point:
-
-The T Third Line starts in the southeastern neighborhood of Bayview-Hunters Point, an area historically underserved by public transportation.
-Visitacion Valley:
-
-The line extends through Visitacion Valley, another neighborhood in the southeastern part of San Francisco.
-South of Market (SoMa):
-
-As the T Third Line progresses northward, it serves the South of Market (SoMa) district, a dynamic and rapidly developing area with a mix of residential and commercial spaces.
-Downtown San Francisco:
-
-The line continues into the heart of downtown San Francisco, connecting to the existing Muni Metro system and providing access to various business, cultural, and entertainment districts.
-By connecting these diverse neighborhoods, the T Third Line contributes to improved accessibility, efficient commuting, and enhanced connectivity for residents and visitors alike. The extension of the Muni Metro system via the Central Subway plays a significant role in fostering a more integrated and accessible public transportation network throughout the city.
-
 ```{r setup, include=FALSE}
   knitr::opts_chunk$set(
     echo = TRUE,
@@ -98,7 +77,6 @@ vt_income <- get_acs(
 
 # Choropleth map
 vt_map <- ggplot(vt_income, aes(fill = estimate)) + 
-   #geom_sf(aes(color = "white"), size = 0.5) +
   geom_sf_interactive(aes(data_id = GEOID)) + 
   scale_fill_viridis_c() +  # Use viridis palette
   theme_void()+
