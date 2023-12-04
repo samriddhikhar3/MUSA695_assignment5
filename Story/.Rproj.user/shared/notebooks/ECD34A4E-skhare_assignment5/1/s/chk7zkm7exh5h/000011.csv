@@ -1,0 +1,6 @@
+"0",""
+"0","# Assuming 'bay_area_2018' is your data frame and 'TotalPop' is the column for which you want quartile breaks"
+"0","quartile_breaks <- quantile(bay_area_2018$TotalPop, probs = c(0, 0.25, 0.5, 0.75, 1))"
+"0",""
+"0","# Using mapview with quartile breaks"
+"0","mapview(bay_area_2018, zcol = ""TotalPop"", at = quartile_breaks)"

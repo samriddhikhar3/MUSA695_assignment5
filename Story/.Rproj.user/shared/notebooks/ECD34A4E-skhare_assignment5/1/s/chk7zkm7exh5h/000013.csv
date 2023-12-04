@@ -1,0 +1,6 @@
+"0",""
+"0","#intervals <- c(0, 3750, 7500, 11250, 15000)"
+"0",""
+"0","# Using mapview with equal intervals"
+"0","#mapview(bay_area_2018, zcol = ""TotalPop"", at = intervals)"
+"0",""

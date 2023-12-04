@@ -1,0 +1,7 @@
+"0",""
+"0","#ga_wide <- ga_wide %>%"
+"0"," #mutate(color = if_else(`medincE` < avg_inc , GRAY9, ORANGE1))"
+"0",""
+"0","ga_wide <- ga_wide %>%"
+"0"," mutate(color = if_else(`medincE` > avg_inc & `medageE`> avg_age, ORANGE1, GRAY9))"
+"0",""

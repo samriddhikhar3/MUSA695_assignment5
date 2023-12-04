@@ -1,0 +1,4 @@
+"0",""
+"0","avg_inc <- mean(ga_wide$medincE)"
+"0","avg_age <- mean(ga_wide$medageE)"
+"0",""

@@ -1,0 +1,136 @@
+"0",""
+"0","acs_variable_list <- load_variables(2020, #year"
+"0","                                         ""acs5"", #five year ACS estimates"
+"0","                                         cache = TRUE)"
+"0",""
+"0","acs_vars <- c(""B01001_001E"", # ACS total Pop estimate"
+"0","              ""B25002_001E"", # Estimate of total housing units"
+"0","              ""B25002_003E"", # Number of vacant housing units"
+"0","              ""B19013_001E"", # Median HH Income ($)"
+"0","              ""B02001_002E"", # People describing themselves as ""white alone"""
+"0","              ""B06009_006E"") # Total graduate or professional degree"
+"0",""
+"0","acsTractsPHL.2020 <- get_acs(geography = ""tract"","
+"0","                             year = 2020, "
+"0","                             variables = acs_vars,"
+"0","                             geometry = FALSE,"
+"0","                             state = ""PA"", "
+"0","                             county = ""Philadelphia"","
+"0","                             output = ""wide"") %>%"
+"0","  dplyr::select (GEOID, NAME, all_of(acs_vars)) %>% "
+"0","  rename (total_pop.2020 = B01001_001E,"
+"0","          total_HU.2020 = B25002_001E,"
+"0","          total_vacant.2020 = B25002_003E,"
+"0","          med_HH_Income.2020 = B19013_001E,"
+"0","          total_White.2020 = B02001_002E,"
+"0","          total_GradDeg.2020 = B06009_006E) %>%"
+"0","  mutate(vacancyPct.2020 = total_vacant.2020/total_HU.2020,"
+"0","         pctWhite.2020 = total_White.2020/total_pop.2020,"
+"0","         year = ""2020"")"
+"2","Getting data from the 2016-2020 5-year ACS
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"0","acsTractsPHL.2016 <- get_acs(geography = ""tract"","
+"0","                             year = 2016, "
+"0","                             variables = acs_vars,"
+"0","                             geometry = FALSE,"
+"0","                             state = ""PA"", "
+"0","                             county = ""Philadelphia"","
+"0","                             output = ""wide"") %>%"
+"0","  dplyr::select (GEOID, NAME, all_of(acs_vars)) %>% "
+"0","  rename (total_pop.2016 = B01001_001E,"
+"0","          total_HU.2016 = B25002_001E,"
+"0","          total_vacant.2016 = B25002_003E,"
+"0","          med_HH_Income.2016 = B19013_001E,"
+"0","          total_White.2016 = B02001_002E,"
+"0","          total_GradDeg.2016 = B06009_006E) %>%"
+"0","  mutate(vacancyPct.2016 = total_vacant.2016/total_HU.2016,"
+"0","         pctWhite.2016 = total_White.2016/total_pop.2016,"
+"0","         year = ""2020"")"
+"2","Getting data from the 2012-2016 5-year ACS
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"0","years <- 2012:2019"
+"0","names(years) <- years"
+"0",""
+"0","philly_value <- map_dfr(years, ~{"
+"0","  get_acs("
+"0","    geography = ""county"","
+"0","    variables = ""B01001B_001"","
+"0","    state = ""PA"","
+"0","    county = ""Philadelphia"","
+"0","    year = .x,"
+"0","    survey = ""acs1"""
+"0","  )"
+"0","}, .id = ""year"") %>%"
+"0","  mutate ( max = estimate + moe, min = estimate - moe)"
+"2","Getting data from the 2012 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"2","Getting data from the 2013 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"2","Getting data from the 2014 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"2","Getting data from the 2015 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"2","Getting data from the 2016 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"2","Getting data from the 2017 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"2","Getting data from the 2018 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"
+"2","Getting data from the 2019 1-year ACS
+"
+"2","The 1-year ACS provides data for geographies with populations of 65,000 and greater.
+"
+"2","Using FIPS code '42' for state 'PA'
+"
+"2","Using FIPS code '101' for 'Philadelphia County'
+"

@@ -1,0 +1,7 @@
+"0",""
+"0",""
+"0","grob_explanation <- grobTree(richtext_grob("
+"0","  ""<span style='background-color:white'><b>The economic recession happened in 2009</b><br>After that, the median income saw a decrease<br>in the following years, picking up in 2013<br> after.</span>"", "
+"0","  x=.35,  y=.9, hjust=0, gp=gpar(col = GRAY3, fontsize=11), box_gp = gpar(col = ""transparent"", fill = ""transparent""),"
+"0","  padding = margin(.4,0,0,0,""in"")))"
+"0",""

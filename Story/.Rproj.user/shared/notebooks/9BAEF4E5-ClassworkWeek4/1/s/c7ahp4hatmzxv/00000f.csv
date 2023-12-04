@@ -1,0 +1,4 @@
+"0",""
+"0","df <- read_csv(file.path(""data"", ""FIG0206-7.csv""))%>% "
+"0","  mutate(`Cost Per Mile` = as.numeric(str_remove_all(`Cost Per Mile`,""\\$""))) "
+"0",""

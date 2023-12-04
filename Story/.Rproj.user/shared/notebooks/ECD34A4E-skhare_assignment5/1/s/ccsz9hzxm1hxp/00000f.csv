@@ -1,0 +1,7 @@
+"0","acs_variable_list.2020 <- load_variables(2020, #year"
+"0","                                         ""acs5"", #five year ACS estimates"
+"0","                                         cache = TRUE)"
+"0",""
+"0","acs_variable_list.2016 <- load_variables(2016, #year"
+"0","                                         ""acs5"", #five year ACS estimates"
+"0","                                         cache = TRUE)"

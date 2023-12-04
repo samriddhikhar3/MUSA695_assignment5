@@ -1,0 +1,4 @@
+"0",""
+"0","avg_miles <- mean(df$`Miles Driven`)"
+"0","avg_cost <- mean(df$`Cost Per Mile`)"
+"0",""

@@ -1,0 +1,6 @@
+"0","df <- read_csv(file.path(""data"", ""FIG0206-7.csv"")) %>% "
+"0","  mutate(`Cost Per Mile` = parse_number(`Cost Per Mile`),"
+"0","         avg_miles = mean(`Cost Per Mile`, na.rm = TRUE),"
+"0","         avg_cost = mean(`Cost Per Mile`, na.rm = TRUE),"
+"0","         color = if_else(`Cost Per Mile` < avg_miles, GRAY9, ORANGE1))"
+"0",""
